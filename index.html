@@ -15,6 +15,9 @@ body_class: impress-not-supported
     </div>
     <div class="row row--pages">
         <h2 class="col col--page">
+            {% include pages/interf.html %}
+        </h2>
+        <h2 class="col col--page">
             {% include pages/github-io.html %}
         </h2>
         <h2 class="col col--page">
@@ -28,6 +31,11 @@ body_class: impress-not-supported
     <div id="title" class="step step--title" data-x="0" data-y="0" data-scale="5">
         <p>
             {% include title.html %}
+        </p>
+    </div>
+    <div id="interf" class="step step--interf" data-x="2750" data-y="3400" data-rotate="-90" data-scale="2">
+        <p>
+            {% include pages/interf.html %}
         </p>
     </div>
     <div id="github-io" class="step step--github-io" data-x="5500" data-y="1700" data-rotate="90" data-scale="2">
