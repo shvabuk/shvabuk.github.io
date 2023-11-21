@@ -38,7 +38,7 @@
     "js"
   ],
   "author": "Ostap Shvab",
-  "license": "GPL-2.0-or-later",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/shvabuk/shvabuk.github.io/issues"
   },
