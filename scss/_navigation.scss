@@ -1,0 +1,16 @@
+.navigation {
+    grid-area: navigation;
+    background-color: $primary-dark;
+}
+
+.conainer--navigation {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: .75rem $col-gap;
+
+    & > .btn {
+        margin-right: .5rem;
+    }
+}

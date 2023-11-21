@@ -1,0 +1,25 @@
+{%
+  set footer_pages = [
+    {
+        "slug": "index",
+        "name": "Home",
+        "link": "index.html",
+    },
+    {
+        "slug": "privacy-policy",
+        "name": "Privacy policy",
+        "link": "privacy-policy.html",
+    },
+  ]
+%}
+
+<div class="container container--footer">
+    <nav>
+        {% for page in footer_pages %}
+            {% set separator = (loop.index0 == 0) ? "": " | " %}
+            {% set active = (page.slug == slug) ? " active": "" %}
+            {{ separator }}<a class="{{ active }}" href="{{ page.link }}">{{ page.name }} {{  }}</a>
+        {% endfor %}
+    </nav>
+    <p> Site made with <i class="bi bi-cup-hot-fill"></i> by <a href="https://www.linkedin.com/in/ostap-shvab-3a555341/">Shvab Ostap</a></p>
+</div>

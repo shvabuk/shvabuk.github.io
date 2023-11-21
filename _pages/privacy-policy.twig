@@ -1,0 +1,49 @@
+{% extends "_base.twig" %}
+
+{% set slug = 'privacy-policy' %}
+{% set head_page_name = 'Privacy policy' %}
+{% set head_page_description = 'Privacy policy.' %}
+
+{% set privacy_effective_date = 'November 20, 2023' %}
+
+{% block page_title %}
+    Privacy policy
+{% endblock %}
+
+{% block page_description %}{% endblock %}
+
+{% block content %}
+<div class="chapter">
+
+    <p><em>Effective as of {{ privacy_effective_date }}.</em></p>
+
+    <p>This Privacy Policy document contains information about the data that is collected and used when you visit the {{ site_name }} at {{ site_url }}.</p>
+
+    <h2>Consent</h2>
+
+    <p>By using our website, you consent to our Privacy Policy and agree to its terms.</p>
+
+    <h2>Personal Data We Collect</h2>
+
+    <p>This site does not collect any information other than that collected by the GitHub Pages hosting service. For more information see paragraph GitHub Pages Service.</p>
+
+    <p>This Website does not use cookies.</p>
+
+    <h2>GitHub Pages Service</h2>
+
+    <p>This Website is hosted as a GitHub Pages website. GitHub may collect and use User Personal Information from visitors to this website, including logs of visitor IP addresses for security purposes. For more information, see <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub Privacy Statement</a> and <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">About GitHub Pages</a>. Information on how to control User Personal Information collected by GutHub can be found on the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement">GitHub Privacy Statement</a> page.</p>
+
+    <h2>Changes</h2>
+    <p>We reserve the right to update this Policy at any time. If we make changes, then we will post an updated version of this Policy at this website. Anytime that we do make such changes, we will also update the effective date listed at the top of this Policy. Please be sure to review the most recent version of the Privacy Policy each time that you visit this website so that you are aware of how we collect, use, and retain personal information.</p>
+
+    <h2>Contact Us</h2>
+
+    <p>To contact us you can:
+    <ul>
+    <li>write an email to {{ contact_email }}</li>
+    <li>write a message to {{ contact_linkedin }} via LinkedIn</li>
+    </ul>
+    </p>
+
+</div>
+{% endblock %}

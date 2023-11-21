@@ -1,0 +1,33 @@
+.sidebar {
+    background-color: $content-block-bg-color;
+
+    background-image: url(../images/meander.svg), url(../images/meander-contra.svg);
+    background-repeat: repeat-x;
+    background-size: .75rem .75rem; 
+    background-position: top, bottom;
+
+    padding: 1.5rem 1rem;
+    text-align: center;
+
+    &>*:first-child {
+        margin-top: 0;
+    }
+
+    &>*:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.author__photo {
+    max-width: 100%;
+}
+
+.author__links {
+    display: flex;
+    justify-content: center;
+    margin: 0 #{calc(-1 * $col-gap / 2)};
+}
+
+.author__link {
+    margin: 0 #{calc($col-gap / 2)}
+}

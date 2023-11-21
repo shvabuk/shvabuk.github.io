@@ -1,0 +1,56 @@
+// default colors
+$white: #fff !default;
+$black: #000000 !default;
+$grey: #888 !default;
+$grey-light: #ddd !default;
+$grey-dark: #323232 !default;
+$content-block-bg-color: rgba(10, 10, 90, 0.1);
+$tag-bg-color: rgba(10, 10, 90, 0.1);
+
+// color palette
+$primary: #0583d2 !default;
+$primary-light: #429ed9 !default;
+$primary-light-much-transparent: rgba(66, 158, 217, .25) !default; // todo
+$primary-dark: #02609d !default;
+
+$secondary: #0C17d9 !default;
+// $secondary-light: #5259df !default;
+$complementar: #ff8e00 !default;
+$complementar-light: #ffac43 !default;
+// $success: #00d971 !default;
+// $success-light: #3bdf90 !default;
+$danger: #ff0700 !default;
+// $danger-light: #ff4843 !default;
+// $warning: #ff4100 !default;
+// $warning-light: #ff7343 !default;
+// $info: #ffbc00 !default;
+// $info-light: #ffce43 !default;
+// $light: #d3d0c6 !default;
+// $light-light: #f9dEd5 !default;
+// $dark: #383a3c !default;
+
+$dark-light: #444c52 !default;
+$dark-dark: #1b1d1f !default;
+
+// $gradientswitch-0:      #0087c9 !default;
+// $gradientswitch-16:     #ef4a53 !default;
+// $gradientswitch-32:     #ffb463 !default;
+// $gradientswitch-49:     #33d5d4 !default;
+// $gradientswitch-65:     #254356 !default;
+// $gradientswitch-81:     #5b4097 !default;
+// $gradientswitch-100:    #0087c9 !default;
+
+// breakpoints
+$breakpoint-sm: 576px !default;
+$breakpoint-md: 768px !default;
+$breakpoint-lg: 992px !default;
+$breakpoint-xl: 1200px !default;
+$breakpoint-xxl: 1400px !default;
+
+// durations
+$base-transition-duration: 0.15s;
+$colapsing-transition-duration: .35s;
+
+// grid
+$row-gap: 1.25rem;
+$col-gap: 1.25rem;

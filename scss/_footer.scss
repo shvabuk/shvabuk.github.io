@@ -1,0 +1,18 @@
+.footer {
+    grid-area: footer;
+    background-color: $complementar;
+    text-align: center;
+    color: $white;
+
+    a {
+        @include color($primary, null, 60%);
+    }
+
+    .bi {
+        @include color($primary-light, null, 100%);
+    }
+}
+
+.container--footer {
+    padding: .75rem $col-gap;
+}

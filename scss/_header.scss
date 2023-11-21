@@ -1,0 +1,28 @@
+.header {
+    grid-area: header;
+    position: relative;
+    color: $white;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: $primary;
+}
+
+// TODO: animation
+// .header-bg {
+//     background-color: $primary;
+//     position: absolute;
+//     left: 0;
+//     right: 0;
+//     top: 0;
+//     bottom: 0;
+//     z-index: -1;
+// }
+
+.container--header {
+    padding: 3.5rem $col-gap;
+}
+
+.page-title {
+    font-size: 4rem;
+    margin: 0 auto 2rem;
+}

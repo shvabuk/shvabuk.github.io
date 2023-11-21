@@ -1,6 +1,4 @@
 # :star2: [shvabuk.github.io](https://shvabuk.github.io/) :star2:
 
-### github.io page, uses:
-- [impress.js](https://github.com/impress/impress.js)
-- [Jakyll](https://jekyllrb.com)
-- [SASS](http://sass-lang.com/)
+### About
+A GitHub repository that provides HTML, CSS, and JavaScript files and contains the source code for [shvabuk.github.io](https://shvabuk.github.io/).

@@ -1,0 +1,61 @@
+$repository-col-gap: .5rem;
+$repository-row-gap: .5rem;
+
+.repositories {
+    display: grid;
+    gap: $row-gap $col-gap;
+    align-items: flex-start;
+    margin-left: calc($repository-col-gap * -1);
+    margin-right: calc($repository-col-gap * -1);
+
+    @include break(lg) {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.repository {
+    background-color: #fff;
+    padding: $repository-row-gap $repository-col-gap;
+
+    & > *:first-child {
+        margin-top: 0;
+    }
+
+    & > *:last-child {
+        margin-bottom: 0;
+    }
+}
+
+.repository__date {
+    color: $grey-dark;
+}
+
+.repository__description {
+    text-indent: 1rem;
+}
+
+.repository__tags {
+    display: flex;
+    justify-content: flex-start;
+    color: #fff;
+    font-size: .75rem;
+    font-weight: bold;
+    margin: 1em -0.25em;
+}
+
+.repository__tag {
+    background-color: $complementar;
+
+    margin: 0 .25em;
+    padding: .5em 1em;
+    clip-path: polygon(1em 0%, calc(100% - 1em) 0%, 100% 30%, 100% 70%, calc(100% - 1em) 100%, 1em 100%, 0% 70%, 0% 30%);
+}
+
+.repository__link {
+    display: block;
+    margin: 1em 0;
+
+    &:after {
+        display: none;
+    }
+}

@@ -1,0 +1,39 @@
+{% extends "_base.twig" %}
+
+{% set slug = 'index' %}
+{% set head_page_name = 'Homepage' %}
+{% set head_page_description = 'Homepage.' %}
+
+{%
+  set repositories = [
+    "repositories/_shvabuk.github.io.twig",
+    "repositories/_mixiner.twig",
+  ]
+%}
+
+{% block content %}
+<div class="chapter">
+    <h2>Plans for the nearest future:</h2>
+
+    <ul>
+        <li>Create a skeleton repository (JS).</li>
+        <li>Create a animation for the heading of this website (JS, CSS).</li>
+        <li>Write a simple code size analyzer script (JS or TS).</li>
+        <li>Write a couple of plugins for WordPress for demonstration purposes (PHP, JS, SCSS). It can be an accordion, a calendar widget, an admin panel tool related to cron.</li>
+    </ul>
+</div>
+
+<div class="chapter">
+    <h2>Repositories:</h2>
+
+    <div class="repositories">
+        {% for repository in repositories %}
+            <div class="repository">
+                {% include repository %}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}
