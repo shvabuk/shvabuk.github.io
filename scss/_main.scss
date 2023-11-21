@@ -13,9 +13,9 @@
 
 .chapter {
     background-color: $content-block-bg-color;
-    background-image: url(../images/wave-meander.svg), url(../images/wave-meander-contra.svg);
+    background-image: url(../images/border-primary.png), url(../images/border-complementar.png);
     background-repeat: repeat-x;
-    background-size: .75rem .75rem; 
+    background-size: 12px 12px; 
     background-position: top, bottom;
 
     padding: 1.5rem 1rem;

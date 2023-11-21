@@ -2,7 +2,7 @@ const Twig = require('twig');
 const fs = require('fs');
 const path = require('path');
 
-const sourceDirectory = '_pages/';
+const sourceDirectory = 'twig/';
 const destinationDirectory = 'docs/';
 const pageTemplateRegex = new RegExp('^[^_].*\\.twig$');
 

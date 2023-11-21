@@ -627,9 +627,9 @@ button:not(:disabled) {
 
 .chapter {
   background-color: rgba(10, 10, 90, 0.1);
-  background-image: url(../images/wave-meander.svg), url(../images/wave-meander-contra.svg);
+  background-image: url(../images/border-primary.png), url(../images/border-complementar.png);
   background-repeat: repeat-x;
-  background-size: 0.75rem 0.75rem;
+  background-size: 12px 12px;
   background-position: top, bottom;
   padding: 1.5rem 1rem;
 }
@@ -642,9 +642,9 @@ button:not(:disabled) {
 
 .sidebar {
   background-color: rgba(10, 10, 90, 0.1);
-  background-image: url(../images/meander.svg), url(../images/meander-contra.svg);
+  background-image: url(../images/border-primary.png), url(../images/border-complementar.png);
   background-repeat: repeat-x;
-  background-size: 0.75rem 0.75rem;
+  background-size: 12px 12px;
   background-position: top, bottom;
   padding: 1.5rem 1rem;
   text-align: center;
