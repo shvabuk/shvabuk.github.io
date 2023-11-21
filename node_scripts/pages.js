@@ -3,7 +3,7 @@ const fs = require('fs');
 const path = require('path');
 
 const sourceDirectory = '_pages/';
-const destinationDirectory = 'pages/';
+const destinationDirectory = 'docs/';
 const pageTemplateRegex = new RegExp('^[^_].*\\.twig$');
 
 async function renderDir(path) {
