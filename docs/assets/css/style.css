@@ -713,6 +713,7 @@ button:not(:disabled) {
 
 .repository__date {
   color: #323232;
+  font-size: 0.75rem;
 }
 
 .repository__description {
