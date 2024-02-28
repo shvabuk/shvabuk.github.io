@@ -6,22 +6,26 @@ const sourceDirectory = 'twig/';
 const destinationDirectory = 'docs/';
 const pageTemplateRegex = new RegExp('^[^_].*\\.twig$');
 
-async function renderDir(path) {
-  const dir = await fs.promises.opendir(path);
+renderDir(sourceDirectory, pageTemplateRegex, sourceDirectory, destinationDirectory);
 
-  for await (const dirent of dir) {
-    if (dirent.isDirectory()) {
-      renderDir(dirent.path + dirent.name + '/');
-    }
-
-    if (dirent.isFile() && pageTemplateRegex.test(dirent.name)) {
-        let source = dirent.path + dirent.name;
-        let destination = source.replace(sourceDirectory, destinationDirectory); // TODO: simplify
-        destination = destination.replace('.twig', '.html');
-
-        renderPage(source, destination);
-    }
+function renderDir(startPath, pageTemplateRegex, sourceDirectory, destinationDirectory) {
+  if (!fs.existsSync(startPath)) {
+    console.log("no dir ", startPath);
+    return;
   }
+
+  let files = fs.readdirSync(startPath);
+  for (let i = 0; i < files.length; i++) {
+    let filename = path.join(startPath, files[i]);
+    let stat = fs.lstatSync(filename);
+    if (stat.isDirectory()) {
+      renderDir(filename, pageTemplateRegex, sourceDirectory, destinationDirectory); //recurse
+    } else if (stat.isFile() && pageTemplateRegex.test(files[i])) {
+      let destination = filename.replace(new RegExp('^'+sourceDirectory), destinationDirectory);
+      destination = destination.replace(new RegExp('.twig$'), '.html');
+      renderPage(filename, destination);
+    }
+  };
 }
 
 function renderPage(source, destination) {
@@ -36,5 +40,3 @@ function renderPage(source, destination) {
     fs.writeFileSync(destination, html.trim());
   });
 }
-
-renderDir(sourceDirectory).catch(console.error);

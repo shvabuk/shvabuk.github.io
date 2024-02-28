@@ -1,30 +1,40 @@
 {
   "name": "shvabuk.github.io",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "description": "Ostap Shvab github pages",
   "main": "index.js",
   "scripts": {
     "start": "npm-run-all --parallel watch",
     "watch": "npm-run-all --parallel watch-*",
-    "watch-css-main": "nodemon --watch scss/ --ext scss --exec \"npm-run-all css-compile css-prefix\"",
+    "watch-js": "nodemon --watch js/ --ext js --exec \"npm run js\"",
+    "watch-css": "nodemon --watch scss/ --ext scss --exec \"npm run css\"",
     "watch-pages": "nodemon --watch twig/ --ext twig --exec \"npm run pages-build\"",
+    "js": "npm-run-all js-compile js-minify",
+    "js-compile": "rollup --config config/rollup.config.mjs --sourcemap",
+    "js-minify": "terser --compress passes=2 --mangle --comments \"/^!/\" --source-map \"content=docs/assets/js/index.js.map,includeSources,url=index.min.js.map\" --output docs/assets/js/index.min.js docs/assets/js/index.js",
+    "css": "npm-run-all css-compile css-prefix css-minify",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/:docs/assets/css/",
-    "css-prefix": "npm-run-all --aggregate-output --parallel css-prefix-*",
-    "css-prefix-main": "postcss --config config/postcss.config.mjs --replace \"docs/assets/css/*.css\"",
+    "css-prefix": "postcss --config config/postcss.config.mjs --replace \"docs/assets/css/*.css\"",
+    "css-minify": "cleancss -O1 --format breakWith=lf --with-rebase --source-map --source-map-inline-sources --output docs/assets/css/ --batch --batch-suffix \".min\" \"docs/assets/css/*.css\" \"!docs/assets/css/*.min.css\"",
     "pages": "npm-run-all pages-build",
     "pages-build": "node node_scripts/pages.js",
     "check-browsers": "npx browserslist",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.15",
-    "nodemon": "^3.0.1",
-    "npm-run-all2": "^6.0.6",
-    "postcss": "^8.4.29",
+    "@babel/preset-env": "^7.24.0",
+    "@rollup/plugin-babel": "^6.0.4",
+    "autoprefixer": "^10.4.17",
+    "clean-css-cli": "^5.6.3",
+    "nodemon": "^3.1.0",
+    "npm-run-all2": "^6.1.2",
+    "postcss": "^8.4.35",
     "postcss-cli": "^10.1.0",
-    "rtlcss": "^4.1.0",
-    "sass": "^1.67.0",
-    "twig": "^1.16.0"
+    "rollup": "^4.12.0",
+    "rtlcss": "^4.1.1",
+    "sass": "^1.71.1",
+    "terser": "^5.28.1",
+    "twig": "^1.17.1"
   },
   "repository": {
     "type": "git",
@@ -42,5 +52,5 @@
   "bugs": {
     "url": "https://github.com/shvabuk/shvabuk.github.io/issues"
   },
-  "homepage": "https://github.com/shvabuk/shvabuk.github.io#readme"
+  "homepage": "https://github.com/shvabuk/shvabuk.github.io"
 }
