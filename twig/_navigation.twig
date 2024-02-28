@@ -15,16 +15,16 @@
 
 <div class="container conainer--navigation">
     <a class="btn btn--primary" href="index.html">Home</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar-collapse"
-        aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
+    <button class="navbar-toggler" type="button" data-collapse-target="#navbar-wrapper"
+        aria-controls="navbar-wrapper" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler__icon"></span>
     </button>
-    <div class="collapse navbar-collapse" id="navbar-collapse">
-        <ul class="navbar-nav">
+    <div class="collapse navbar-wrapper" id="navbar-wrapper">
+        <ul class="navbar">
             {% for page in header_pages %}
                 {% set active = (page.slug == slug) ? " active": "" %}
-                <li class="nav-item">
-                    <a class="nav-link{{ active }}" href="{{ page.link }}">{{ page.name }}</a>
+                <li class="navbar__item">
+                    <a class="navbar__link{{ active }}" href="{{ page.link }}">{{ page.name }}</a>
                 </li>
             {% endfor %}
         </ul>

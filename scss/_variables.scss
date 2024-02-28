@@ -10,7 +10,7 @@ $tag-bg-color: rgba(10, 10, 90, 0.1);
 // color palette
 $primary: #0583d2 !default;
 $primary-light: #429ed9 !default;
-$primary-light-much-transparent: rgba(66, 158, 217, .25) !default; // todo
+// $primary-light-much-transparent: rgba(66, 158, 217, .25) !default;
 $primary-dark: #02609d !default;
 
 $secondary: #0C17d9 !default;
@@ -28,17 +28,8 @@ $info-light: #ffce43 !default;
 $light: #d3d0c6 !default;
 $light-light: #f9dEd5 !default;
 $dark: #383a3c !default;
-
 $dark-light: #444c52 !default;
 $dark-dark: #1b1d1f !default;
-
-// $gradientswitch-0:      #0087c9 !default;
-// $gradientswitch-16:     #ef4a53 !default;
-// $gradientswitch-32:     #ffb463 !default;
-// $gradientswitch-49:     #33d5d4 !default;
-// $gradientswitch-65:     #254356 !default;
-// $gradientswitch-81:     #5b4097 !default;
-// $gradientswitch-100:    #0087c9 !default;
 
 // breakpoints
 $breakpoint-sm: 576px !default;

@@ -1,4 +1,4 @@
 # :star2: [shvabuk.github.io](https://shvabuk.github.io/) :star2:
 
 ### About
-A GitHub repository that provides HTML, CSS, and JavaScript files and contains the source code for [shvabuk.github.io](https://shvabuk.github.io/).
+In this GitHub repository you can find source files (twig, html, scss, js etc.) for the  [shvabuk.github.io](https://shvabuk.github.io/) website.
