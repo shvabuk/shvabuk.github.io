@@ -31,3 +31,24 @@ $breakpoints: (
         color: color.scale($color, $blackness: $blackness_percent);
     }
 }
+
+
+@mixin button($name, $color, $background, $active) {
+    .btn--#{$name} {
+        font-weight: 600;
+        color: $color;
+        background-color: $background;
+        border-color: $background;
+    
+        &:hover,
+        &:active {
+            color: $color;
+            background-color: $active;
+            border-color: $active;
+        }
+    
+        &:focus {
+            box-shadow: 0 0 0 3px transparentize($active, .75);
+        }
+    }
+}

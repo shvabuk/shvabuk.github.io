@@ -1,6 +1,6 @@
 /*!
   * Ostap Shvab github pages v2.0.2 (https://github.com/shvabuk/shvabuk.github.io)
-  * Copyright 2024 Ostap Shvab
+  * Copyright 2017-2024 Ostap Shvab
   * Licensed under MIT (https://github.com/shvabuk/shvabuk.github.io/blob/master/LICENSE)
   * 
   */

@@ -1,0 +1,47 @@
+/*
+ * Buttons
+ */
+[type=button]:not(:disabled),
+[type=reset]:not(:disabled),
+[type=submit]:not(:disabled),
+button:not(:disabled) {
+    cursor: pointer;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: $dark-dark;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid $dark-dark;
+    padding: 0.375em 0.75em;
+    font-size: 1em;
+    transition: color $base-transition-duration ease-in-out, background-color $base-transition-duration ease-in-out, border-color $base-transition-duration ease-in-out, box-shadow $base-transition-duration ease-in-out;
+
+    &:hover,
+    &:active {
+        color: $dark-light;
+        border-color: $dark-light;
+    }
+
+    &:focus {
+        outline: 0;
+        box-shadow: 0 0 0 0.25rem transparentize($white, .75);
+    }
+}
+
+@include button('primary', $white, $primary, $primary-light);
+@include button('secondary', $white, $secondary, $secondary-light);
+@include button('complementar', $white, $complementar, $complementar-light);
+@include button('success', $white, $success, $success-light);
+@include button('danger', $white, $danger, $danger-light);
+@include button('warning', $white, $warning, $warning-light);
+@include button('info', $white, $info, $info-light);
+@include button('light', $black, $light, $light-light);
+@include button('dark', $white, $dark, $dark-light);
