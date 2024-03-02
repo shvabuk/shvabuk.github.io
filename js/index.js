@@ -1,42 +1,11 @@
-// import Example from './example.js';
+import CollapseElement from './collapse-element.js';
+import { ISSTracker } from './satellite-tracker.js';
 
 document.addEventListener('DOMContentLoaded', function () {
-    new Collapsable();
+    // Navbar collapsing
+    const burger = new CollapseElement('#burger');
+
+    // ISS Tracker start
+    const ISS = new ISSTracker();
+    ISS.runAutoupdate(60000);
 });
-
-
-[]
-class Collapsable {
-    constructor(buttonSelector) {
-        this.buttonSelector = (buttonSelector)? buttonSelector: '[data-collapse-target]';
-        this.init();
-    }
-
-    init() {
-        document.querySelectorAll(this.buttonSelector).forEach(function (button) {
-            const targetsSelector = button.dataset.collapseTarget;
-
-            document.querySelectorAll(targetsSelector).forEach(function (target) {
-                button.addEventListener('click', function () {
-                    const isTargetOpened = target.classList.contains('show');
-            
-                    if (isTargetOpened) {
-                        target.classList.remove('show');
-                        target.style.maxHeight = null;
-                    } else {
-                        target.classList.add('show');
-                        target.style.maxHeight = target.scrollHeight + 'px';
-                    }
-                });
-            });
-        });
-    }
-}
-
-
-
-
-// import Example from './example.js';
-
-// const ex = new Example();
-// ex.sayHello();

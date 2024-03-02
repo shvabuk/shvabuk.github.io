@@ -338,6 +338,17 @@ template {
   display: none;
 }
 
+@keyframes blink {
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0;
+  }
+  75% {
+    opacity: 0.5;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -740,6 +751,11 @@ button:not(:disabled) {
   margin-bottom: 0;
 }
 
+.sidebars {
+  display: grid;
+  gap: 1.25rem 1.25rem;
+}
+
 .sidebar {
   background-color: rgba(10, 10, 90, 0.1);
   background-image: url(../images/border-primary.png), url(../images/border-complementar.png);
@@ -768,6 +784,38 @@ button:not(:disabled) {
 
 .author__link {
   margin: 0 0.625rem;
+}
+
+.satellite-world-map {
+  position: relative;
+  margin: 0 auto;
+  background-image: url("../images/world-map.png");
+  background-size: cover;
+  max-width: 512px;
+}
+.satellite-world-map:before {
+  content: "";
+  display: block;
+  width: 100%;
+  padding-top: 50%;
+}
+
+.satellite-marker {
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background-color: white;
+  border: 2px solid black;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  animation: blink 1s linear infinite;
+}
+
+.satellite-details-part {
+  display: block;
 }
 
 .footer {

@@ -1,3 +1,8 @@
+.sidebars {
+    display: grid;
+    gap: $row-gap $col-gap;
+}
+
 .sidebar {
     background-color: $content-block-bg-color;
 
