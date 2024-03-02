@@ -1,6 +1,7 @@
 const Twig = require('twig');
 const fs = require('fs');
 const path = require('path');
+const pretty = require('pretty');
 
 const sourceDirectory = 'twig/';
 const destinationDirectory = 'docs/';
@@ -37,6 +38,6 @@ function renderPage(source, destination) {
       if (err) throw err;
     });
 
-    fs.writeFileSync(destination, html.trim());
+    fs.writeFileSync(destination, pretty(html));
   });
 }
