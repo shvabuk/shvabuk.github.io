@@ -16,6 +16,9 @@ $repository-row-gap: .5rem;
 .repository {
     background-color: #fff;
     padding: $repository-row-gap $repository-col-gap;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 
     & > *:first-child {
         margin-top: 0;
@@ -41,7 +44,7 @@ $repository-row-gap: .5rem;
     color: #fff;
     font-size: .75rem;
     font-weight: bold;
-    margin: 1em -0.25em;
+    margin: auto -0.25em 0;
 }
 
 .repository__tag {

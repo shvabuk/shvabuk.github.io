@@ -851,6 +851,9 @@ button:not(:disabled) {
 .repository {
   background-color: #fff;
   padding: 0.5rem 0.5rem;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .repository > *:first-child {
   margin-top: 0;
@@ -874,7 +877,7 @@ button:not(:disabled) {
   color: #fff;
   font-size: 0.75rem;
   font-weight: bold;
-  margin: 1em -0.25em;
+  margin: auto -0.25em 0;
 }
 
 .repository__tag {

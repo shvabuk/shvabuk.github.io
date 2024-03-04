@@ -12,6 +12,7 @@ const plugins = [
     babelHelpers: 'bundled',
   }),
 ];
+
 const rollupConfig = {
   input: path.resolve(__dirname, `../js/index.js`),
   output: {
@@ -24,4 +25,4 @@ const rollupConfig = {
   plugins,
 }
 
-export default rollupConfig
+export default rollupConfig;

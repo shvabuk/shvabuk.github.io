@@ -2,7 +2,7 @@
   "name": "shvabuk.github.io",
   "version": "2.0.3",
   "description": "Ostap Shvab github pages",
-  "main": "index.js",
+  "main": "docs/index.html",
   "scripts": {
     "start": "npm-run-all --parallel watch",
     "watch": "npm-run-all --parallel watch-*",
