@@ -772,8 +772,26 @@ button:not(:disabled) {
   margin-bottom: 0;
 }
 
-.author__photo {
+.author-picture {
+  position: relative;
+  display: block;
+}
+
+.author-picture__photo {
   max-width: 100%;
+  display: block;
+}
+
+.author-picture__badge {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.15em;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: rgba(5, 131, 210, 0.75);
 }
 
 .author__links {
