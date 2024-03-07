@@ -11,7 +11,7 @@
     "watch-pages": "nodemon --watch twig/ --ext twig --exec \"npm run pages-build\"",
     "js": "npm-run-all js-compile js-minify",
     "js-compile": "rollup --config config/rollup.config.mjs --sourcemap",
-    "js-minify": "terser --compress passes=2 --mangle --comments \"/^!/\" --source-map \"content=docs/assets/js/index.js.map,includeSources,url=index.min.js.map\" --output docs/assets/js/index.min.js docs/assets/js/index.js",
+    "js-minify": "terser --compress passes=2 --mangle --comments all --source-map \"content=docs/assets/js/index.js.map,includeSources,url=index.min.js.map\" --output docs/assets/js/index.min.js docs/assets/js/index.js",
     "css": "npm-run-all css-compile css-prefix css-minify",
     "css-compile": "sass --style expanded --source-map --embed-sources --no-error-css scss/:docs/assets/css/",
     "css-prefix": "postcss --config config/postcss.config.mjs --replace \"docs/assets/css/*.css\"",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@babel/preset-env": "^7.24.0",
     "@rollup/plugin-babel": "^6.0.4",
+    "@rollup/plugin-node-resolve": "^15.2.3",
     "autoprefixer": "^10.4.17",
     "clean-css-cli": "^5.6.3",
     "nodemon": "^3.1.0",
