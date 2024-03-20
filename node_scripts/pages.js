@@ -22,7 +22,7 @@ function renderDir(startPath, pageTemplateRegex, sourceDirectory, destinationDir
     if (stat.isDirectory()) {
       renderDir(filename, pageTemplateRegex, sourceDirectory, destinationDirectory); //recurse
     } else if (stat.isFile() && pageTemplateRegex.test(files[i])) {
-      let destination = filename.replace(new RegExp('^'+sourceDirectory), destinationDirectory);
+      let destination = destinationDirectory + filename.slice(sourceDirectory.length);
       destination = destination.replace(new RegExp('.twig$'), '.html');
       renderPage(filename, destination);
     }
