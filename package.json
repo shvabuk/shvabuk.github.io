@@ -1,6 +1,6 @@
 {
   "name": "shvabuk.github.io",
-  "version": "2.0.3",
+  "version": "2.0.4",
   "description": "Ostap Shvab github pages",
   "main": "docs/index.html",
   "scripts": {
@@ -30,6 +30,7 @@
     "clean-css-cli": "^5.6.3",
     "decompress": "^4.2.1",
     "follow-redirects": "^1.15.6",
+    "line-length-analyser": "github:shvabuk/line-length-analyser#main",
     "nodemon": "^3.1.0",
     "npm-run-all2": "^6.1.2",
     "postcss": "^8.4.35",
@@ -38,6 +39,7 @@
     "rollup": "^4.12.0",
     "rtlcss": "^4.1.1",
     "sass": "^1.71.1",
+    "satellite-tracker": "github:shvabuk/satellite-tracker#main",
     "terser": "^5.28.1",
     "twig": "^1.17.1"
   },

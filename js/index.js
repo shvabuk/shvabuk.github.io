@@ -1,6 +1,6 @@
 import CollapseElements from './collapse-elements.js';
 import TabElements from './tab-elements.js';
-import { ISSTracker } from '../modules/satellite-tracker.js';
+import ISSTracker from 'satellite-tracker/esm/iss-tracker.js';
 import particlesJS from '../modules/particles.js';
 
 document.addEventListener('DOMContentLoaded', function () {

@@ -1,6 +1,6 @@
 const path = require('node:path');
-const RepositoriesDownloader = require('../modules/line-length-analyser/commonjs/repositories-downloader.js');
-const LineLengthAnalyser = require('../modules/line-length-analyser/commonjs/line-length-analyser.js');
+const RepositoriesDownloader = require('line-length-analyser/commonjs/repositories-downloader.cjs');
+const LineLengthAnalyser = require('line-length-analyser/commonjs/line-length-analyser.cjs');
 
 async function main() {
     const downloader = new RepositoriesDownloader('tmp/archives', 'tmp/analys-repos');
