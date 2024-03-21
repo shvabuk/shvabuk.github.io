@@ -1,0 +1,37 @@
+.tabs-labels {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid $black;
+}
+
+.tabs-label {
+    display: block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out;
+    margin-bottom: -1px;
+    background-color: transparent;
+    border: 1px solid transparent;
+    border-color: transparent transparent $black;
+    clip-path: polygon(1em 0%, calc(100% - 1em) 0%, 100% 30%,100% 100%, 0 100%, 0% 30%);
+
+    &:hover {
+        background-color: $light;
+    }
+
+    &.active, &.active:hover {
+        color: $white;
+        background-color: $primary;
+        border-color: transparent transparent $primary;
+    }
+}
+
+.tab-panel {
+    display: none;
+
+    &.show {
+        display: block;
+    }
+}

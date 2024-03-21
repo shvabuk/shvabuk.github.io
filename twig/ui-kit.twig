@@ -28,5 +28,32 @@
         <button type="button" class="btn btn--dark">Dark</button>
     </div>
 
+    <h2>Tabs</h2>
+
+    <nav>
+        <div class="tabs-labels" id="nav-tab" role="tablist">
+        {% for i in 0..3 %}
+            <button class="tabs-label
+            {% if i == 1 %} active {% endif %}
+            " data-tab-target="#tab-{{ i }}" type="button" role="tab" aria-controls="tab-{{ i }}">
+                Tab {{ i }}
+            </button>
+        {% endfor %}
+        </div>
+    </nav>
+    <div class="tab-panels">
+        {% for i in 0..3 %}
+            <div class="tab-panel
+            {% if i == 1 %} show {% endif %}
+            " id="tab-{{ i }}" role="tabpanel">
+                <p>
+                    <b>Tab panel content {{ i }}</b>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, 
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+                </p>
+            </div>
+        {% endfor %}
+    </div>
+
 </div>
 {% endblock %}

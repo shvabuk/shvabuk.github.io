@@ -1,12 +1,14 @@
-import CollapseElement from './collapse-element.js';
+import CollapseElements from './collapse-elements.js';
+import TabElements from './tab-elements.js';
 import { ISSTracker } from './satellite-tracker.js';
 import particlesJS from './particles.js';
 
-console.log(particlesJS);
-
 document.addEventListener('DOMContentLoaded', function () {
     // Navbar collapsing
-    const burger = new CollapseElement('#burger');
+    new CollapseElements('#burger');
+
+    // Default tabs
+    new TabElements();
 
     // ISS Tracker start
     const ISS = new ISSTracker();

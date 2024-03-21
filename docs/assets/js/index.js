@@ -20,51 +20,116 @@
     return receiver;
   }
 
-  var _trigger = /*#__PURE__*/_classPrivateFieldLooseKey("trigger");
-  var _targets = /*#__PURE__*/_classPrivateFieldLooseKey("targets");
-  var _addListener = /*#__PURE__*/_classPrivateFieldLooseKey("addListener");
-  class CollapseElement {
+  var _triggers$1 = /*#__PURE__*/_classPrivateFieldLooseKey("triggers");
+  var _addListener$1 = /*#__PURE__*/_classPrivateFieldLooseKey("addListener");
+  var _getTargets$1 = /*#__PURE__*/_classPrivateFieldLooseKey("getTargets");
+  class CollapseElements {
     constructor(selector = '[data-collapse-target]') {
-      Object.defineProperty(this, _addListener, {
-        value: _addListener2
+      Object.defineProperty(this, _getTargets$1, {
+        value: _getTargets2$1
       });
-      Object.defineProperty(this, _trigger, {
+      Object.defineProperty(this, _addListener$1, {
+        value: _addListener2$1
+      });
+      Object.defineProperty(this, _triggers$1, {
         writable: true,
         value: void 0
       });
-      Object.defineProperty(this, _targets, {
-        writable: true,
-        value: void 0
-      });
-      _classPrivateFieldLooseBase(this, _trigger)[_trigger] = document.querySelector(selector);
-      const targetsSelector = _classPrivateFieldLooseBase(this, _trigger)[_trigger].dataset.collapseTarget;
-      _classPrivateFieldLooseBase(this, _targets)[_targets] = document.querySelectorAll(targetsSelector);
-      _classPrivateFieldLooseBase(this, _addListener)[_addListener]();
+      _classPrivateFieldLooseBase(this, _triggers$1)[_triggers$1] = document.querySelectorAll(selector);
+      _classPrivateFieldLooseBase(this, _addListener$1)[_addListener$1]();
     }
-    show() {
-      _classPrivateFieldLooseBase(this, _targets)[_targets].forEach(target => {
-        _classPrivateFieldLooseBase(this, _trigger)[_trigger].classList.remove('collapsed');
+    show(trigger) {
+      const targets = _classPrivateFieldLooseBase(this, _getTargets$1)[_getTargets$1](trigger);
+      targets.forEach(target => {
+        trigger.classList.remove('collapsed');
         target.classList.add('show');
         target.style.maxHeight = target.scrollHeight + 'px';
       });
     }
-    hide() {
-      _classPrivateFieldLooseBase(this, _targets)[_targets].forEach(target => {
-        _classPrivateFieldLooseBase(this, _trigger)[_trigger].classList.add('collapsed');
+    hide(trigger) {
+      const targets = _classPrivateFieldLooseBase(this, _getTargets$1)[_getTargets$1](trigger);
+      targets.forEach(target => {
+        trigger.classList.add('collapsed');
         target.classList.remove('show');
         target.style.maxHeight = null;
       });
     }
   }
-  function _addListener2() {
-    _classPrivateFieldLooseBase(this, _trigger)[_trigger].addEventListener('click', () => {
-      const isCollapsed = _classPrivateFieldLooseBase(this, _trigger)[_trigger].classList.contains('collapsed');
-      if (isCollapsed) {
-        this.show();
-      } else {
-        this.hide();
-      }
+  function _addListener2$1() {
+    _classPrivateFieldLooseBase(this, _triggers$1)[_triggers$1].forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        const isCollapsed = trigger.classList.contains('collapsed');
+        if (isCollapsed) {
+          this.show(trigger);
+        } else {
+          this.hide(trigger);
+        }
+      });
     });
+  }
+  function _getTargets2$1(trigger) {
+    const targetsSelector = trigger.dataset.collapseTarget;
+    return document.querySelectorAll(targetsSelector);
+  }
+
+  var _triggers = /*#__PURE__*/_classPrivateFieldLooseKey("triggers");
+  var _addListener = /*#__PURE__*/_classPrivateFieldLooseKey("addListener");
+  var _activate = /*#__PURE__*/_classPrivateFieldLooseKey("activate");
+  var _getTargets = /*#__PURE__*/_classPrivateFieldLooseKey("getTargets");
+  var _hideSiblings = /*#__PURE__*/_classPrivateFieldLooseKey("hideSiblings");
+  class TabElements {
+    constructor(selector = '[data-tab-target]') {
+      Object.defineProperty(this, _hideSiblings, {
+        value: _hideSiblings2
+      });
+      Object.defineProperty(this, _getTargets, {
+        value: _getTargets2
+      });
+      Object.defineProperty(this, _activate, {
+        value: _activate2
+      });
+      Object.defineProperty(this, _addListener, {
+        value: _addListener2
+      });
+      Object.defineProperty(this, _triggers, {
+        writable: true,
+        value: void 0
+      });
+      _classPrivateFieldLooseBase(this, _triggers)[_triggers] = document.querySelectorAll(selector);
+      _classPrivateFieldLooseBase(this, _addListener)[_addListener]();
+    }
+    show(trigger) {
+      const isActive = trigger.classList.contains('active');
+      if (!isActive) {
+        _classPrivateFieldLooseBase(this, _activate)[_activate](trigger);
+      }
+    }
+  }
+  function _addListener2() {
+    _classPrivateFieldLooseBase(this, _triggers)[_triggers].forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        this.show(trigger);
+      });
+    });
+  }
+  function _activate2(trigger) {
+    const targets = _classPrivateFieldLooseBase(this, _getTargets)[_getTargets](trigger);
+    targets.forEach(target => _classPrivateFieldLooseBase(this, _hideSiblings)[_hideSiblings](target));
+    _classPrivateFieldLooseBase(this, _hideSiblings)[_hideSiblings](trigger);
+    trigger.classList.add('active');
+    for (const target of targets) {
+      target.classList.add('show');
+    }
+  }
+  function _getTargets2(trigger) {
+    const targetsSelector = trigger.dataset.tabTarget;
+    return document.querySelectorAll(targetsSelector);
+  }
+  function _hideSiblings2(element) {
+    for (const child of element.parentNode.children) {
+      child.classList.remove('active');
+      child.classList.remove('show');
+    }
   }
 
   const isObject$1 = value => {
@@ -1649,10 +1714,12 @@
     xhr.send();
   };
 
-  console.log(particlesJS);
   document.addEventListener('DOMContentLoaded', function () {
     // Navbar collapsing
-    new CollapseElement('#burger');
+    new CollapseElements('#burger');
+
+    // Default tabs
+    new TabElements();
 
     // ISS Tracker start
     const ISS = new ISSTracker();
