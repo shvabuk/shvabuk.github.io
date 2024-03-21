@@ -19,6 +19,7 @@
     "pages": "npm-run-all pages-build",
     "pages-build": "node node_scripts/pages.js",
     "check-browsers": "npx browserslist",
+    "lines": "node node_scripts/line-length-analyser.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
@@ -27,6 +28,8 @@
     "@rollup/plugin-node-resolve": "^15.2.3",
     "autoprefixer": "^10.4.17",
     "clean-css-cli": "^5.6.3",
+    "decompress": "^4.2.1",
+    "follow-redirects": "^1.15.6",
     "nodemon": "^3.1.0",
     "npm-run-all2": "^6.1.2",
     "postcss": "^8.4.35",

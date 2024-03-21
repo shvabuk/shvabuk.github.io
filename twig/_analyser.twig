@@ -1,0 +1,83 @@
+{% extends "_base.twig" %}
+
+{% set slug = 'analyser' %}
+{% set link = 'analyser.html' %}
+{% set head_page_name = 'Line length analyser' %}
+{% set head_page_description = 'The results of my repositories analysing.' %}
+
+{% block head %}
+    {{ parent() }}
+
+    <script>
+        const bars = [];
+        const ctx = [];
+        const results = [];
+
+        window.addEventListener("load", (event) => {
+            results.forEach((result, index) => {
+                ctx[index] = document.getElementById("canvas_"+index).getContext("2d");
+
+                bars[index] = new Chart(ctx[index], {
+                    type: 'boxplot',
+                    data: result,
+                    options: {
+                        scales: {
+                            x: {
+                                position: 'top'
+                            },
+                        },
+                        indexAxis: 'y',
+                        responsive: true,
+                        legend: {
+                            position: 'top',
+                        },
+                        title: {
+                            display: true,
+                            text: 'Box Plot Chart'
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+{% endblock %}
+
+{% block page_title %}
+    Line length analyser
+{% endblock %}
+
+{% block page_description %}
+    The results of my repositories analysing.
+{% endblock %}
+
+{% block content %}
+<div class="chapter">
+    <nav>
+        <div class="tabs-labels" id="nav-tab" role="tablist">
+        {% for repository in repositories %}
+            <button class="tabs-label
+            {% if loop.index0 == 0 %} active {% endif %}
+            " data-tab-target="#tab-{{ loop.index0 }}" type="button" role="tab" aria-controls="tab-{{ loop.index0 }}">
+                {{ repository.name }}
+            </button>
+        {% endfor %}
+        </div>
+    </nav>
+    <div class="tab-panels">
+        {% for repository in repositories %}
+            <div class="tab-panel
+            {% if loop.index0 == 0 %} show {% endif %}
+            " id="tab-{{ loop.index0 }}" role="tabpanel">
+                {% include '_analyser-panel.twig' with {'repository': repository, 'index': loop.index0 } %}
+            </div>
+        {% endfor %}
+    </div>
+
+</div>
+{% endblock %}
+
+{% block scripts %}
+    <script src="https://unpkg.com/chart.js@^4.4"></script>
+    <script src="https://unpkg.com/@sgratzl/chartjs-chart-boxplot@^4.3/build/index.umd.min.js"></script>
+    {{ parent() }}
+{% endblock %}

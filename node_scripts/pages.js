@@ -1,3 +1,5 @@
+// TODO: rewrite
+
 const Twig = require('twig');
 const fs = require('fs');
 const path = require('path');
@@ -7,7 +9,15 @@ const sourceDirectory = 'twig/';
 const destinationDirectory = 'docs/';
 const pageTemplateRegex = new RegExp('^[^_].*\\.twig$');
 
+// create pages without "_" prefix
 renderDir(sourceDirectory, pageTemplateRegex, sourceDirectory, destinationDirectory);
+// special case for analyser page
+let analysesResults = readJSON('tmp/analyses-results/scss.json');
+analysesResults = analysesResults.concat(readJSON('tmp/analyses-results/js.json'));
+
+renderPage('twig/_analyser.twig', 'docs/analyser.html', {
+  repositories: analysesResults,
+});
 
 function renderDir(startPath, pageTemplateRegex, sourceDirectory, destinationDirectory) {
   if (!fs.existsSync(startPath)) {
@@ -29,8 +39,9 @@ function renderDir(startPath, pageTemplateRegex, sourceDirectory, destinationDir
   };
 }
 
-function renderPage(source, destination) {
-  Twig.renderFile(source, {/*data:'here'*/}, (err, html) => {
+function renderPage(source, destination, data = {}) {
+  console.log(source, destination);
+  Twig.renderFile(source, data, (err, html) => {
     if (err) throw err;
 
     const dirname = path.dirname(destination);
@@ -40,4 +51,12 @@ function renderPage(source, destination) {
 
     fs.writeFileSync(destination, pretty(html));
   });
+}
+
+function readJSON(filePath) {
+  if (fs.existsSync(filePath)) {
+    const content = fs.readFileSync(filePath);
+    
+    return JSON.parse(content);
+  }
 }

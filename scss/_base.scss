@@ -42,6 +42,47 @@ a {
     }
 }
 
+canvas {
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 100%;
+}
+
+$table-border-color: $grey-dark;
+$table-color: $black;
+$thead-bg: $secondary;
+$thead-color: $white;
+$tbody-bg: $white;
+$table-even-row-bg: $primary-light;
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    overflow: hidden;
+    color: $table-color;
+    
+    td, th {
+        border: 1px solid $table-border-color;
+        padding: 10px;
+    }
+    
+    thead, th {
+        background-color: $thead-bg;
+        color: $thead-color;
+    }
+
+    tbody {
+        background-color: $tbody-bg;
+    }
+    
+    tr:nth-of-type(even) td {
+        background-color: $table-even-row-bg;
+    }
+}
+
 .alert-text {
     color: $danger;
 }

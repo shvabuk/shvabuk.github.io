@@ -391,6 +391,35 @@ a:after {
   }
 }
 
+canvas {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+  width: 100%;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  overflow: hidden;
+  color: #000000;
+}
+table td, table th {
+  border: 1px solid #323232;
+  padding: 10px;
+}
+table thead, table th {
+  background-color: #0C17d9;
+  color: #fff;
+}
+table tbody {
+  background-color: #fff;
+}
+table tr:nth-of-type(even) td {
+  background-color: #429ed9;
+}
+
 .alert-text {
   color: #ff0700;
 }
