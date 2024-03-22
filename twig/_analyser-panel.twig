@@ -1,51 +1,61 @@
-<h3>Files:</h3>
-<table>
-    <thead>
-        <tr>
-            <td>File</td>
-            <td>Line count</td>
-            <td>Max line length</td>
-            <td>Mean line length</td>
-            <td>Median line length</td>
-            <td>Empty lines</td>
-        </tr>
-    </thead>
-    <tbody>
-    {% for file in repository.results %}
-        <tr>
-            <td>{{file.name}}</td>
-            <td>{{file.lineCount}}</td>
-            <td>{{file.maxLineLength}} <i>(line: {{file.widestLineNumber}})</i></td>
-            <td>{{file.meanLineLength}}</td>
-            <td>{{file.medianLineLength}}</td>
-            <td>{{file.emptyLinesPercent}}%</td>
-        </tr>
-    {% endfor %}
-    </tbody>
-</table>
+{% set repoIndex = loop.index0 %}
 
-<h3>Boxplots:</h3>
-<canvas id="canvas_{{index}}" class="canvas"></canvas>
-<script>
-    results[{{index}}] = {
-    labels: [
-        {% for file in repository.results %}
-        '{{ file.name }}',
+{% for unit in repository.results %} 
+    {% set unitIndex = loop.index0 %}
+
+    <h3>Unit of analysis: {{ unit.name }}</h3>
+    <h4>Files:</h4>
+    <table>
+        <thead>
+            <tr>
+                <td>File</td>
+                <td>Line count</td>
+                <td>Max line length</td>
+                <td>Mean line length</td>
+                <td>Median line length</td>
+                <td>Empty lines</td>
+            </tr>
+        </thead>
+        <tbody>
+        {% for file in unit.results %}
+            <tr>
+                <td>{{file.name}}</td>
+                <td>{{file.lineCount}}</td>
+                <td>{{file.maxLineLength}} <i>(line: {{file.widestLineNumber}})</i></td>
+                <td>{{file.meanLineLength}}</td>
+                <td>{{file.medianLineLength}}</td>
+                <td>{{file.emptyLinesPercent}}%</td>
+            </tr>
         {% endfor %}
-    ],
-    datasets: [{
-        label: 'Lines',
-        backgroundColor: 'rgba(66,158,217,0.5)',
-        borderColor: 'rgb(66,158,217)',
-        borderWidth: 1,
-        outlierColor: '#999999',
-        padding: 10,
-        itemRadius: 2,
-        data: [
-        {% for file in repository.results %}
-            [{{ file.lengths }}],
-        {% endfor %}
-        ]
-    }]
-    };
-</script>
+        </tbody>
+    </table>
+
+    <h4>Boxplots:</h4>
+    <canvas id="canvas_{{repoIndex}}_{{unitIndex}}" class="canvas"></canvas>
+    <script>
+        if (!Array.isArray(results[{{repoIndex}}])) {
+            results[{{repoIndex}}] = [];
+        }
+        results[{{repoIndex}}][{{unitIndex}}] = {
+            labels: [
+                {% for file in unit.results %}
+                '{{ file.name }}',
+                {% endfor %}
+            ],
+            datasets: [{
+                label: 'Lines',
+                backgroundColor: 'rgba(66,158,217,0.5)',
+                borderColor: 'rgb(66,158,217)',
+                borderWidth: 1,
+                outlierColor: '#999999',
+                padding: 10,
+                itemRadius: 2,
+                data: [
+                {% for file in unit.results %}
+                    [{{ file.lengths }}],
+                {% endfor %}
+                ]
+            }]
+        };
+    </script>
+{% endfor %}

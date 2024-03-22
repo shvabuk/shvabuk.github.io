@@ -1,5 +1,5 @@
 /*!
-  * Ostap Shvab github pages v2.0.4 (https://github.com/shvabuk/shvabuk.github.io)
+  * Ostap Shvab github pages v2.0.5 (https://github.com/shvabuk/shvabuk.github.io)
   * Copyright 2017-2024 Ostap Shvab
   * Licensed under MIT (https://github.com/shvabuk/shvabuk.github.io/blob/master/LICENSE)
   * 

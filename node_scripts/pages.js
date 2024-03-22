@@ -12,8 +12,7 @@ const pageTemplateRegex = new RegExp('^[^_].*\\.twig$');
 // create pages without "_" prefix
 renderDir(sourceDirectory, pageTemplateRegex, sourceDirectory, destinationDirectory);
 // special case for analyser page
-let analysesResults = readJSON('tmp/analyses-results/scss.json');
-analysesResults = analysesResults.concat(readJSON('tmp/analyses-results/js.json'));
+let analysesResults = readJSON('tmp/analyses-results.json');
 
 renderPage('twig/_analyser.twig', 'docs/analyser.html', {
   repositories: analysesResults,

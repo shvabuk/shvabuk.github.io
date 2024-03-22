@@ -14,28 +14,34 @@
         const results = [];
 
         window.addEventListener("load", (event) => {
-            results.forEach((result, index) => {
-                ctx[index] = document.getElementById("canvas_"+index).getContext("2d");
+            let i = -1;
 
-                bars[index] = new Chart(ctx[index], {
-                    type: 'boxplot',
-                    data: result,
-                    options: {
-                        scales: {
-                            x: {
-                                position: 'top'
+            results.forEach((unit, repoIndex) => {
+                unit.forEach((result, unitIndex) => {
+                    i++;
+            
+                    ctx[i] = document.getElementById("canvas_"+repoIndex+"_"+unitIndex).getContext("2d");
+
+                    bars[i] = new Chart(ctx[i], {
+                        type: 'boxplot',
+                        data: result,
+                        options: {
+                            scales: {
+                                x: {
+                                    position: 'top'
+                                },
                             },
-                        },
-                        indexAxis: 'y',
-                        responsive: true,
-                        legend: {
-                            position: 'top',
-                        },
-                        title: {
-                            display: true,
-                            text: 'Box Plot Chart'
+                            indexAxis: 'y',
+                            responsive: true,
+                            legend: {
+                                position: 'top',
+                            },
+                            title: {
+                                display: true,
+                                text: 'Box Plot Chart'
+                            }
                         }
-                    }
+                    });
                 });
             });
         });
