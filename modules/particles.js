@@ -1435,14 +1435,12 @@ var pJS = function(tag_id, params){
 //   return destination;
 // };
 
-const isObject = (value) => {
-  return typeof value === 'object' && !Array.isArray(value) && value !== null;
-}
+const isPlainObject = value => value?.constructor === Object;
 
 // A simple objects deep merging for the settings options.
 const deepExtend = (target, source) => {
   for (const key in source) {
-      if (isObject(target[key]) && isObject(source[key])) {
+      if (isPlainObject(target[key]) && isPlainObject(source[key])) {
           target[key] = deepExtend(target[key], source[key]);
       } else {
           target[key] = source[key];
