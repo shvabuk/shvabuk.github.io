@@ -1,5 +1,5 @@
 /*!
-  * Ostap Shvab github pages v2.0.5 (https://github.com/shvabuk/shvabuk.github.io)
+  * Ostap Shvab github pages v2.0.6 (https://github.com/shvabuk/shvabuk.github.io)
   * Copyright 2017-2024 Ostap Shvab
   * Licensed under MIT (https://github.com/shvabuk/shvabuk.github.io/blob/master/LICENSE)
   * 
@@ -132,16 +132,13 @@
     }
   }
 
-  function isObject(value) {
-      return typeof value === 'object' &&
-          !Array.isArray(value) &&
-          value !== null &&
-          !(value instanceof RegExp);
+  function isPlainObject$1(value) {
+      return value?.constructor === Object;
   }
 
   function deepMerge(target, source) {
       for (const key in source) {
-          if (isObject(target[key]) && isObject(source[key])) {
+          if (isPlainObject$1(target[key]) && isPlainObject$1(source[key])) {
               target[key] = deepMerge(target[key], source[key]);
           } else {
               target[key] = source[key];

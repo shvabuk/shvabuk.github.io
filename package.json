@@ -1,6 +1,6 @@
 {
   "name": "shvabuk.github.io",
-  "version": "2.0.5",
+  "version": "2.0.6",
   "description": "Ostap Shvab github pages",
   "main": "docs/index.html",
   "scripts": {
@@ -34,6 +34,7 @@
     "line-length-analyser": "github:shvabuk/line-length-analyser#main",
     "nodemon": "^3.1.0",
     "npm-run-all2": "^6.1.2",
+    "pages": "github:shvabuk/pages#main",
     "postcss": "^8.4.35",
     "postcss-cli": "^10.1.0",
     "pretty": "^2.0.0",
